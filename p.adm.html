@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Restaurante Durango</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar, .footer {
+            background-color: #A60303;
+        }
+
+        .navbar-brand {
+            margin: auto;
+        }
+
+        .orders-container {
+            padding: 20px;
+        }
+
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .orders-header h1 {
+            margin: 0;
+            color: #A60303;
+        }
+
+        .orders-table th, .orders-table td {
+            vertical-align: middle;
+        }
+
+        .status-badge {
+            padding: 0.5em;
+            border-radius: 0.25em;
+            color: #fff;
+        }
+
+        .status-badge.pendente {
+            background-color: #ffc107;
+        }
+
+        .status-badge.concluido {
+            background-color: #28a745;
+        }
+
+        .status-badge.cancelado {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Restaurante Durango</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cardápio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contatos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Pedidos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="orders-container">
+        <div class="orders-header">
+            <h1>Pedidos</h1>
+            <input type="text" class="form-control w-25" id="search-input" placeholder="Pesquisar pedidos">
+        </div>
+        <table class="table table-hover orders-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Cliente</th>
+                    <th>Data</th>
+                    <th>Itens</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="orders-table-body">
+                <!-- Exemplo de pedidos -->
+                <tr>
+                    <td>1</td>
+                    <td>Maria Silva</td>
+                    <td>2024-06-30</td>
+                    <td>2x Burritos, 1x Nachos</td>
+                    <td>R$ 45,00</td>
+                    <td><span class="status-badge pendente">Pendente</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>João Santos</td>
+                    <td>2024-06-30</td>
+                    <td>1x Tacos, 1x Guacamole</td>
+                    <td>R$ 30,00</td>
+                    <td><span class="status-badge concluido">Concluído</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ana Costa</td>
+                    <td>2024-06-30</td>
+                    <td>3x Enchiladas</td>
+                    <td>R$ 50,00</td>
+                    <td><span class="status-badge cancelado">Cancelado</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-white">
+            <span>&copy; 2024 Restaurante Durango. Todos os direitos reservados.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('search-input').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#orders-table-body tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const match = Array.from(cells).some(cell => cell.textContent.toLowerCase().includes(searchTerm));
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
