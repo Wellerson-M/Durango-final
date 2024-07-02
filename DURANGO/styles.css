@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+p, h1 {
+    text-align: center;
+}
+
+.Durangocor {
+    color: red;
+}
+
+.barra {
+    height: 25px;
+    background-color: #165C15;
+}
+
+nav {
+    height: 90px;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-toggler {
+    position: absolute;
+    right: 10px;
+}
+
+
+
+.txt-nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 130px;
+}
+
+.footer-logo {
+    width: 100px;
+}
+
+footer {
+    background-color: #A60303;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    
+}
+a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+footer a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+
+a:link {
+    color: white;
+ }
+ /* mouse over */
+a:hover {
+    color: darkgray;
+}
+
+
+
+footer h6 {
+    margin: 1rem 0;
+}
+.well{
+    background-color: white;
+}
+
+
+.container{
+    margin-top: 100px;
+    
+}
+.preco{
+    color: greenyellow;
+}
+.custom-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+
+.custom-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.cacto {
+    margin-left: 600px;
+    margin-top: 0px;
+}
+
+.offcanvas-body a {
+    color: white;
+    text-decoration: none;
+}
+
+.offcanvas-body a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 767.98px) {
+    .navbar-brand img {
+        width: 80px;
+    }
+    nav {
+        height: 60px;
+    }
+    .txt-nav {
+        margin-top: 2.4%;
+    }
+    footer .border-md-end {
+        border-right: 0;
+        border-bottom: 1px solid white;
+    }
+    footer p, footer h6 {
+        font-size: 0.9rem;
+    }
+}
